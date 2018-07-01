@@ -14,7 +14,7 @@ import java.util.Scanner;
 import java.util.Vector;
 
 /**
- * Класс для хранения графа и отображения действий над ним.
+ *	A class for storing the graph and displaying actions on it.
  */
 public class Graph implements GraphInterface {
     Graph() {
@@ -22,16 +22,16 @@ public class Graph implements GraphInterface {
     }
 
     /**
-     * Класс для хранения ребер графа.
+     * Class for storing graph edges.
      */
     public class ElementGraphWay {
         int from;
         int to;
-        int l;//weight
+        int l;
     }
 
     /**
-     * Класс для хранения координат узлов графа.
+	 * 	A class for storing the coordinates of graph nodes.
      */
     public class WaysPoint {
         int x;
@@ -44,14 +44,14 @@ public class Graph implements GraphInterface {
     Vector<Integer> ways = new Vector<>();
     Vector<Integer> road = new Vector<>();
     Vector<WaysPoint> visual = new Vector<>();
-    int n;//количество узлов
-    int m = 0;//количество ветвей
-    int v;// узел из которого нужно считать пути;
+    int n;	// number of vertex
+    int m = 0; // number of edges
+    int v;	// vertxe - beginner
     int V = -1;
     private int negativeCircle;
 
     /**
-     * Функция считывания графа из файла.
+     * Reading the graph from the file
      */
     public void inputFile() {
         negativeCircle = 0;
@@ -59,10 +59,10 @@ public class Graph implements GraphInterface {
         visual.clear();
         Scanner sc;
         try {
-            sc = new Scanner(new File("in.txt"));// создаём объект класса Scanner
+            sc = new Scanner(new File("in.txt"));
             try {
-                if (sc.hasNextInt()) { // возвращает истинну если с потока ввода можно считать целое число
-                    n = sc.nextInt();// считывает целое число с потока ввода и сохраняем в переменную
+                if (sc.hasNextInt()) { 
+                    n = sc.nextInt();
                 } else System.out.println("There is not enough data in the file");
                 if (sc.hasNextInt()) {
                     m = sc.nextInt();
@@ -94,7 +94,8 @@ public class Graph implements GraphInterface {
     }
 
     /**
-     * Функция генерирования рандомного графа.
+     * 
+	 *	Function of generating a random graph.
      */
     public void inputGeneration() {
         negativeCircle = 0;
@@ -104,7 +105,7 @@ public class Graph implements GraphInterface {
             for (int j = 0; j < m; j++) {
                 ElementGraphWay Q = new ElementGraphWay();
                 Q.from = i;
-                int q;// путь куда
+                int q;// way to
                 do {
                     q = random.nextInt(n) + 1;
                     --q;
@@ -119,28 +120,24 @@ public class Graph implements GraphInterface {
     }
 
     /**
-     * Функция поиска кратчайших путей из заданной вершины в графе.
+     * The function of finding the shortest paths from a given vertex in a graph.
      *
-     * @param P контроллер, в который будут выведены результаты.
+     * @param P controller, in which the results will be displayed.
      */
     public void searchAlgorithm(Controller P) {
         int inf = Integer.MAX_VALUE;
-        for (int i = 0; i < n; i++) {//int n;//количество узлов
+        for (int i = 0; i < n; i++) {
             ways.add(inf);
             road.add(-1);
         }
-        v--;// узел из которого нужно считать пути;
+        v--;// vertex from
         ways.set(v, 0);
         P.graphAlg.clear();
         P.graphAlg.appendText((v + 1) + "|\t");
         for (int k = 1; k <= n; k++) {
             P.graphAlg.appendText(k + "|\t");
-            //if (k > 9) {
-            //P.graphAlg.appendText(" " + k + " |");
-            //} else P.graphAlg.appendText(" " + k + " |");
         }
         P.graphAlg.appendText("\n\t");
-        //P.graphAlg.appendText("\t");
         for (int k = 0; k < n; k++) {
             if (ways.elementAt(k) == inf)
                 P.graphAlg.appendText("∞" + "\t");
@@ -151,8 +148,8 @@ public class Graph implements GraphInterface {
             }
         }
         P.graphAlg.appendText("\n");
-        for (int i = 1; i <= n; ++i) {//number of vertexes
-            for (int j = 0; j < m; ++j) {//int m = 0;//количество ветвей
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < m; ++j) {
                 if ((ways.elementAt(list.elementAt(j).from) < inf) & ((ways.elementAt(list.elementAt(j).from) + list.elementAt(j).l) < ways.elementAt(list.elementAt(j).to))) {
                     if (i == n) {
                         negativeCircle = 1;
@@ -186,9 +183,10 @@ public class Graph implements GraphInterface {
 
 
     /**
-     * Функция вывода кратчайших путей из заданной вершины в графе.
+     * 
+	 *	The function of derivation of shortest paths from a given vertex in a graph.
      *
-     * @param P контроллер, в который будут выведены результаты.
+     * @param P controller, in which the results will be displayed.
      */
     public void outputWays(Controller P) {
         if (negativeCircle == 0) {
@@ -216,7 +214,7 @@ public class Graph implements GraphInterface {
     }
 
     /**
-     * Функция присвоения координат узлам графа.
+     * The function of assigning coordinates to the nodes of the graph.
      */
     private void XY() {
         double fi = 360 / n;
