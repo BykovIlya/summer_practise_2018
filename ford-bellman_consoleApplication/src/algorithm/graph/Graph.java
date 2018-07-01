@@ -1,6 +1,8 @@
 package algorithm.graph;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -36,7 +38,7 @@ class Graph{
     /**
      * Reading the graph from the file
      */
-    void inputFile(String num) {
+    void inputFile(int num) {
         negativeCircle = 0;
         list.clear();
         visual.clear();
@@ -88,12 +90,12 @@ class Graph{
         }
         v--;
         ways.set(v, 0);
-        System.out.print((v + 1) + "|\t");
+        /*System.out.print((v + 1) + "|\t");
         for (int k = 1; k <= n; k++) {
             System.out.print(k + "|\t");
-        }
-        System.out.print("\n\t");
-        for (int k = 0; k < n; k++) {
+        }*/
+        //System.out.print("\n\t");
+        /*for (int k = 0; k < n; k++) {
             if (ways.elementAt(k) == inf)
                 System.out.print("∞" + "\t");
             else {
@@ -101,8 +103,8 @@ class Graph{
                     System.out.print(ways.elementAt(k) + "\t");
                 else System.out.print(ways.elementAt(k) + "\t");
             }
-        }
-        System.out.print("\n");
+        }*/
+        //System.out.print("\n");
         for (int i = 1; i <= n; ++i) {//number of vertexes
             for (int j = 0; j < m; ++j) {//int m = 0;//количество ветвей
                 if ((ways.elementAt(list.elementAt(j).from) < inf) & ((ways.elementAt(list.elementAt(j).from) + list.elementAt(j).l) < ways.elementAt(list.elementAt(j).to))) {
@@ -114,8 +116,8 @@ class Graph{
                     } else {
                         ways.set(list.elementAt(j).to, (ways.elementAt(list.elementAt(j).from) + list.elementAt(j).l));
                         road.set(list.elementAt(j).to, list.elementAt(j).from);
-                        System.out.print("\t");
-                        for (int k = 0; k < n; k++) {
+                    //    System.out.print("\t");
+                    /*    for (int k = 0; k < n; k++) {
                             if (ways.elementAt(k) == inf)
                                 System.out.print("∞"+"\t");
                             else {
@@ -123,8 +125,8 @@ class Graph{
                                     System.out.print(ways.elementAt(k) + "\t");
                                 else System.out.print(ways.elementAt(k) + "\t");
                             }
-                        }
-                        System.out.print("\n");
+                        }*/
+                      //  System.out.print("\n");
 
                     }
                 }
@@ -138,7 +140,36 @@ class Graph{
     /**
      * Output ways
      */
+    ArrayList<Integer> outputWaysToUnitTest() {
+        ArrayList<Integer> result = new ArrayList<>();
+        result.add(0);
+        if (negativeCircle == 0) {
+            Vector<Integer> path = new Vector<>();
+            for (int j = 0; j < n; j++) {
+                if (j != (v)) {
+                    if (ways.elementAt(j) == Integer.MAX_VALUE) {
+         //               System.out.print(30000 + " ");
+                        result.add(30000);
+                    } else {
+                        path.clear();
+                        for (int cur = j; cur != -1; cur = road.elementAt(cur))
+                            path.add(cur);
+       //                 System.out.print(ways.elementAt(j) + " ");
+                        result.add(ways.elementAt(j));
+                        //for (int i = path.size() - 1; i >= 1; i--) {
+                          //  int l = (path.elementAt(i) + 1);
+                         //   System.out.print(l + "->");
+                     //   }
+                        //System.out.print((path.elementAt(0) + 1) + "\n");
+                        //path.clear();
+                    }
+                }
+            }
+        }
+        return result;
+    }
     void outputWays() {
+     //   Integer [] result = new Integer[0];
         if (negativeCircle == 0) {
             Vector<Integer> path = new Vector<>();
             for (int j = 0; j < n; j++) {
@@ -161,5 +192,4 @@ class Graph{
             }
         }
     }
-
 }
