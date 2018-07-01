@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ford-bellman:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ford_bellman_jar</output-path>
+    <root id="archive" name="ford-bellman.jar">
+      <element id="module-output" name="ford-bellman" />
+    </root>
+  </artifact>
+</component>
