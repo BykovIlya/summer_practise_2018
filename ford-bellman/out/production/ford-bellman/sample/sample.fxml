@@ -109,7 +109,7 @@
                     </font>
                 </Label>
                 <TextArea fx:id="textGraph" layoutX="21.0" layoutY="173.0" prefHeight="190.0" prefWidth="501.0" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="443.0" AnchorPane.topAnchor="173.0" />
-                <Button fx:id="next" layoutX="23.0" layoutY="571.0" mnemonicParsing="false" onAction="#nextMenu" prefHeight="39.0" prefWidth="495.0" text="Visualization of algorithm work" textFill="#2d03a1">
+                <Button fx:id="next" layoutX="23.0" layoutY="571.0" mnemonicParsing="false" onAction="#nextMenu" prefHeight="39.0" prefWidth="495.0" text="Visualization of the algorithm's work" textFill="#2d03a1">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -125,7 +125,7 @@
                     </font>
                 </Label>
                 <TextArea fx:id="graphV" layoutX="587.0" layoutY="572.0" prefHeight="46.0" prefWidth="123.0" visible="false" />
-                <Button fx:id="graphWay" layoutX="720.0" layoutY="574.0" mnemonicParsing="false" onAction="#getWay" prefHeight="30.0" prefWidth="176.0" text="Way" textFill="#2d03a1" visible="false">
+                <Button fx:id="graphWay" layoutX="720.0" layoutY="574.0" mnemonicParsing="false" onAction="#getWay" prefHeight="30.0" prefWidth="176.0" text="Path" textFill="#2d03a1" visible="false">
                     <font>
                         <Font size="18.0" />
                     </font>

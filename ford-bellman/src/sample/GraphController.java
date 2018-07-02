@@ -1,6 +1,7 @@
 package sample;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -31,6 +32,9 @@ public class GraphController extends Controller {
     public static Button nextButton1;
 
     @FXML
+    public static Button prevButton;
+
+    @FXML
     public static Button buildBut;
 
     public GraphController() {
@@ -54,13 +58,12 @@ public class GraphController extends Controller {
         if (P.V != -1) {
             if (P.ways.elementAt(P.V) == Integer.MAX_VALUE) {
 
-                Label label = new Label("The way from the top " + Integer.toString(P.v + 1) + " to the top " + Integer.toString(P.V + 1) + ": NO\n");
+                Label label = new Label(/*"The way from the top " + Integer.toString(P.v + 1) + " to the top " + Integer.toString(P.V + 1) + ": NO\n"*/);
                 label.setTextFill(Color.RED);
                 label.setLayoutX(0);
                 label.setLayoutY(0);
                 pane1.getChildren().add(label);
             } else {
-
                 Vector<Integer> path = new Vector<>();
                 for (int cur = P.V; cur != -1; cur = P.road.elementAt(cur))
                     path.add(cur);
@@ -195,6 +198,17 @@ public class GraphController extends Controller {
         }
     }
 
+    public void prevStep() {
+        if (fordInWork) {
+
+            cycleFord();
+            if (last) {
+
+            }
+        }
+    }
+
+
     private void cycleFord() {
         if (fordInWork && !cycle) {
             if (!last) {
@@ -253,4 +267,5 @@ public class GraphController extends Controller {
         }
         counter++;
     }
+
 }

@@ -34,26 +34,37 @@
                         </ImageInput>
                     </effect>
                 </SplitPane>
-                <Label layoutX="129.0" layoutY="-97.0" prefHeight="256.0" prefWidth="411.0" text="The given graph" textFill="#653794" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="-97.0">
+                <Label layoutX="190.0" layoutY="-97.0" prefHeight="256.0" prefWidth="411.0" text="The given graph" textFill="#653794" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="-97.0">
                     <font>
                         <Font name="ACaslonPro-Regular" size="47.0" />
                     </font>
                 </Label>
-                <Button fx:id="buildBut" layoutX="24.0" layoutY="513.0" mnemonicParsing="false" onAction="#graphButton" prefHeight="47.0" prefWidth="190.0" text="Build " textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="457.0" AnchorPane.topAnchor="513.0">
+
+                <Button fx:id="buildBut" layoutX="24.0" layoutY="513.0" mnemonicParsing="false" onAction="#graphButton" prefHeight="47.0" prefWidth="142.5" text="Build" textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="457.0" AnchorPane.topAnchor="513.0">
                     <font>
                         <Font size="18.0" />
                     </font></Button>
-                <Pane fx:id="pane1" layoutX="208.0" layoutY="169.0" prefHeight="256.0" prefWidth="256.0" scaleX="2.2" scaleY="1.6" snapToPixel="false" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="207.0" AnchorPane.topAnchor="169.0" />
-                <Button fx:id="nextButton" layoutX="467.0" layoutY="513.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="47.0" prefWidth="190.0" text="Next step" textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="513.0">
+
+                <Pane fx:id="pane1" layoutX="208.0" layoutY="169.0" prefHeight="100.0" prefWidth="256.0" scaleX="2.2" scaleY="1.6" snapToPixel="false" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="207.0" AnchorPane.topAnchor="169.0" />
+
+                <Button fx:id="prevButton" layoutX="467.0" layoutY="513.0" mnemonicParsing="false" onAction="#prevStep" prefHeight="47.0" prefWidth="142.5" text="Previous step" textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="223.0" AnchorPane.topAnchor="513.0">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="nextButton1" layoutX="249.0" layoutY="513.0" mnemonicParsing="false" onAction="#graphPaint" prefHeight="47.0" prefWidth="190.0" text="Draw" textFill="#2c00da">
+
+                <Button fx:id="nextButton" layoutX="467.0" layoutY="513.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="47.0" prefWidth="142.5" text="Next step" textFill="#2c00da" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="513.0">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
+
+                <Button fx:id="nextButton1" layoutX="234.0" layoutY="450.0" mnemonicParsing="false" onAction="#graphPaint" prefHeight="47.0" prefWidth="213.0" text="Draw" textFill="#2c00da">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+
             </children>
         </AnchorPane>
     </children>
