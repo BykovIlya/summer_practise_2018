@@ -9,5 +9,3 @@ https://github.com/BykovIlya/summer_practise_2018/tree/master/ford-bellman_conso
 
 # link to the report (not ready):
 https://github.com/BykovIlya/summer_practise_2018/blob/master/docs/report.docx
-
-# abc
