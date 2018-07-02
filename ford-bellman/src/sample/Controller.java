@@ -138,6 +138,8 @@ public class Controller {
                 error("Enter the vertex");
             } else {
                 try {
+                    P.ways.clear();
+                    P.road.clear();
                     int m = Integer.parseInt(textField1.getText());
                     P.v = m;
                     if (P.v > P.n || P.v <= 0)
@@ -242,14 +244,14 @@ public class Controller {
     @FXML
     public void getWay() {
         if (graphV.getText() == null || graphV.getText().length() == 0) {
-            error("Enter the number of vertices");
+            error("Enter the number of vertex");
         } else {
 
             try {
                 int x = Integer.parseInt(graphV.getText());
-                x--;
-                P.V = x;
-                if (x + 1 > P.n || x + 1 < 0 || x == (P.v)) {//?
+                //x--;
+                P.V = x - 1;
+                if (x > P.n || x < 0 || x - 1 == (P.v)) {
 
                     error("The graph can not be displayed");
                 } else {
