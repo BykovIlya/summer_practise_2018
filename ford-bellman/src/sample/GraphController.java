@@ -49,7 +49,7 @@ public class GraphController extends Controller {
     public void graphButton() {
         imageVertex();
         for (int i = 0; i < P.m; i++) {
-            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 9, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 9);
+            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 14, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 14);
             q.setStrokeWidth(0.5);
             q.setFill(Color.LIGHTGREY);
             pane1.getChildren().add(q);
@@ -87,7 +87,7 @@ public class GraphController extends Controller {
             label1.setLayoutY((P.visual.elementAt(P.V).y - 12));
             pane1.getChildren().add(label1);
 
-            Line q = new Line(P.visual.elementAt(l).x, P.visual.elementAt(l).y - 9, P.visual.elementAt(k).x, P.visual.elementAt(k).y - 9);
+            Line q = new Line(P.visual.elementAt(l).x, P.visual.elementAt(l).y - 14, P.visual.elementAt(k).x, P.visual.elementAt(k).y - 14);
             q.setStroke(Color.RED);
             q.setStrokeWidth(1);
             pane1.getChildren().add(q);
@@ -107,18 +107,18 @@ public class GraphController extends Controller {
      * @param color color of the line
      */
     private void arrow(int x, int x1, int y, int y1, Color color) {
-        double beta = Math.atan2((y) - (y1 - 9), x1 - x);
+        double beta = Math.atan2((y) - (y1 - 14), x1 - x);
         double alfa = Math.PI / 10;
         int r1 = 10;
 
         int x2 = (int) Math.round(x1 - r1 * Math.cos(beta + alfa));
-        int y2 = (int) Math.round((y1 - 9) + r1 * Math.sin(beta + alfa));
+        int y2 = (int) Math.round((y1 - 14) + r1 * Math.sin(beta + alfa));
 //g2d.drawLine(x1,y1,x2,y2);
         int x3 = (int) Math.round(x1 - r1 * Math.cos(beta - alfa));
-        int y3 = (int) Math.round((y1 - 9) + r1 * Math.sin(beta - alfa));
+        int y3 = (int) Math.round((y1 - 14) + r1 * Math.sin(beta - alfa));
 //g2d.drawLine(x1,y1,x2,y2);
-        Line q1 = new Line(x1, y1 - 9, x2, y2);
-        Line q2 = new Line(x1, y1 - 9, x3, y3);
+        Line q1 = new Line(x1, y1 - 14, x2, y2);
+        Line q2 = new Line(x1, y1 - 14, x3, y3);
         q1.setStroke(color);
         pane1.getChildren().add(q1);
         q2.setStroke(color);
@@ -135,7 +135,7 @@ public class GraphController extends Controller {
         fordInWork = true;
         imageVertex();
         for (int i = 0; i < P.m; i++) {
-            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 9, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 9);
+            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 14, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 14);
             q.setStrokeWidth(0.5);
             q.setFill(Color.BLACK);
             pane1.getChildren().add(q);
@@ -154,13 +154,13 @@ public class GraphController extends Controller {
 
     private void imageVertex() {
         for (int i = 0; i < P.n; i++) {
-            Ellipse C = new Ellipse(P.visual.elementAt(i).x, P.visual.elementAt(i).y, 6, 9);
-            C.setFill(Color.LIGHTSKYBLUE);
+            Ellipse C = new Ellipse(P.visual.elementAt(i).x, P.visual.elementAt(i).y, 12, 14);
+            C.setFill(Color.DEEPSKYBLUE );
             pane1.getChildren().add(C);
             Label label = new Label(Integer.toString(P.visual.elementAt(i).name));
-            label.setTextFill(Color.BLUEVIOLET);
-            label.setLayoutX(P.visual.elementAt(i).x - 3);
-            label.setLayoutY(P.visual.elementAt(i).y - 9);
+            label.setTextFill(Color.WHITESMOKE);
+            label.setLayoutX(P.visual.elementAt(i).x - 7);
+            label.setLayoutY(P.visual.elementAt(i).y - 10);
             pane1.getChildren().add(label);
         }
     }
@@ -243,7 +243,7 @@ public class GraphController extends Controller {
                 P.ways.set(P.list.elementAt(counter).to, (P.ways.elementAt(P.list.elementAt(counter).from) + P.list.elementAt(counter).l));
                 P.road.set(P.list.elementAt(counter).to, P.list.elementAt(counter).from);
 
-                Line q3 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 9, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 9);
+                Line q3 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 14, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 14);
                 q3.setStrokeWidth(1);
                 q3.setStroke(Color.GREEN);
                 pane1.getChildren().add(q3);
@@ -251,7 +251,7 @@ public class GraphController extends Controller {
                 relaxCounter++;
                 cycle = false;
             } else {
-                Line q1 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 9, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 9);
+                Line q1 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 14, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 14);
                 q1.setStrokeWidth(1);
                 q1.setStroke(Color.BLUE);
                 pane1.getChildren().add(q1);
@@ -259,7 +259,7 @@ public class GraphController extends Controller {
             }
         }
         else {
-            Line q3 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 9, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 9);
+            Line q3 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 14, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 14);
             q3.setStrokeWidth(1);
             q3.setStroke(Color.ORANGE);
             pane1.getChildren().add(q3);

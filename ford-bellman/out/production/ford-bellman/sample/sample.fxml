@@ -35,7 +35,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Label fx:id="text6" layoutX="585.0" layoutY="470.0" prefHeight="69.0" prefWidth="308.0" text="Enter the vertex of the graph:" textFill="#653794">
+                <Label fx:id="text6" layoutX="585.0" layoutY="470.0" prefHeight="69.0" prefWidth="308.0" text="Enter the start vertex:" textFill="#653794">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -120,6 +120,11 @@
                     </font>
                 </Button>
                 <Label fx:id="vertex" layoutX="584.0" layoutY="480.0" prefHeight="143.0" prefWidth="319.0" text="Enter the vertex of the graph:" textFill="#8674ee" visible="false">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="text7" layoutX="584.0" layoutY="98.0" prefHeight="43.0" prefWidth="319.0" text="Path's matrix:" textFill="#653794" visible="false">
                     <font>
                         <Font size="18.0" />
                     </font>
