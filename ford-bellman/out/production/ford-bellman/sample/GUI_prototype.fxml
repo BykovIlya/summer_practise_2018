@@ -58,13 +58,26 @@
                         <Font size="18.0" />
                     </font>
                 </Button>
-
-                <Button fx:id="nextButton1" layoutX="234.0" layoutY="450.0" mnemonicParsing="false" onAction="#graphPaint" prefHeight="47.0" prefWidth="213.0" text="Draw" textFill="#2c00da">
+                <Label fx:id="edgesColorRed" layoutX="40.0" layoutY="470.0" prefHeight="30.0" prefWidth="213.0" text=" RED - path," textFill="#FF0000">
                     <font>
                         <Font size="18.0" />
                     </font>
-                </Button>
-
+                </Label>
+                <Label fx:id="edgesColorBlue" layoutX="150.0" layoutY="470.0" prefHeight="30.0" prefWidth="213.0" text=" Blue - non-relaxed," textFill="#0000FF">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="edgesColorGreen" layoutX="325.0" layoutY="470.0" prefHeight="30.0" prefWidth="213.0" text=" Green - relaxed," textFill="#00FF00">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="edgesColorOrange" layoutX="475.0" layoutY="470.0" prefHeight="30.0" prefWidth="213.0" text=" Orange - no path." textFill="#FFA500">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
     </children>
