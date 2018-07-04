@@ -7,5 +7,5 @@ https://github.com/BykovIlya/summer_practise_2018/blob/master/ford-bellman/ford-
 # link to the console application with unit tests :
 https://github.com/BykovIlya/summer_practise_2018/tree/master/ford-bellman_consoleApplication/src/algorithm/graph
 
-# link to the report (not ready):
+# link to the report:
 https://github.com/BykovIlya/summer_practise_2018/blob/master/docs/report.docx
