@@ -24,6 +24,7 @@ public class GraphController extends Controller {
     private boolean last = false;
     private boolean cycle = false;
     private final int inf;
+    private static int nextStepCounter = 0;
 
     @FXML
     public static Button nextButton;
@@ -127,7 +128,7 @@ public class GraphController extends Controller {
 
     /**
      * The function of step-by-step search of shortest paths from a given vertex in a graph.
-     *  Handling the keystroke "next step".
+     * Handling the keystroke "next step".
      */
 
     @FXML
@@ -142,7 +143,7 @@ public class GraphController extends Controller {
             this.arrow(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).from).y, P.visual.elementAt(P.list.elementAt(i).to).y, Color.BLACK);
         }
 
-        for (int i = 1; i < (P.n+1); i++) {
+        for (int i = 1; i < (P.n + 1); i++) {
             P.ways.remove(1);
             P.ways.add(inf);
             P.road.add(-1);
@@ -155,7 +156,7 @@ public class GraphController extends Controller {
     private void imageVertex() {
         for (int i = 0; i < P.n; i++) {
             Ellipse C = new Ellipse(P.visual.elementAt(i).x, P.visual.elementAt(i).y, 12, 14);
-            C.setFill(Color.DEEPSKYBLUE );
+            C.setFill(Color.DEEPSKYBLUE);
             pane1.getChildren().add(C);
             Label label = new Label(Integer.toString(P.visual.elementAt(i).name));
             label.setTextFill(Color.WHITESMOKE);
@@ -196,18 +197,41 @@ public class GraphController extends Controller {
 
             }
         }
+        nextStepCounter++;
     }
 
+    @FXML
     public void prevStep() {
-        if (fordInWork) {
-
-            cycleFord();
-            if (last) {
-
+        if (nextStepCounter >= 0) {
+            if (fordInWork && !cycle) {
+                back();
             }
+            if (fordInWork && cycle) {
+                back();
+            }
+            nextStepCounter--;
+
         }
     }
 
+    private void back() {
+        if (counter > 0) {
+            if (P.ways.elementAt(P.list.elementAt(counter).from) < inf) {
+                if ((P.ways.elementAt(P.list.elementAt(counter).from) + P.list.elementAt(counter).l) < P.ways.elementAt(P.list.elementAt(counter).to) && (cnt1 > 0)) {
+                    pane1.getChildren().remove(q3[cnt1]);
+                    relaxCounter--;
+                    cnt1--;
+                } else if (cnt2 > 0) {
+                    pane1.getChildren().remove(q1[cnt2]);
+                    cnt2--;
+                }
+            } else if (cnt3 > 0) {
+                pane1.getChildren().remove(q2[cnt3]);
+                cnt3--;
+            }
+            counter--;
+        }
+    }
 
     private void cycleFord() {
         if (fordInWork && !cycle) {
@@ -236,36 +260,42 @@ public class GraphController extends Controller {
         }
     }
 
-    private void stepSearchAlgorithm() {
+    private static Line[] q3 = new Line[P.m];
+    private static Line[] q2 = new Line[P.m];
+    private static Line[] q1 = new Line[P.m];
+    private static int cnt1 = 1;
+    private static int cnt2 = 1;
+    private static int cnt3 = 1;
 
+    private void stepSearchAlgorithm() {
         if (P.ways.elementAt(P.list.elementAt(counter).from) < inf) {
             if ((P.ways.elementAt(P.list.elementAt(counter).from) + P.list.elementAt(counter).l) < P.ways.elementAt(P.list.elementAt(counter).to)) {
                 P.ways.set(P.list.elementAt(counter).to, (P.ways.elementAt(P.list.elementAt(counter).from) + P.list.elementAt(counter).l));
                 P.road.set(P.list.elementAt(counter).to, P.list.elementAt(counter).from);
-
-                Line q3 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 14, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 14);
-                q3.setStrokeWidth(1);
-                q3.setStroke(Color.GREEN);
-                pane1.getChildren().add(q3);
+                q3[cnt1] = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 9, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 9);
+                q3[cnt1].setStrokeWidth(1);
+                q3[cnt1].setStroke(Color.GREEN);
+                pane1.getChildren().add(q3[cnt1]);
                 last = false;
                 relaxCounter++;
+                cnt1++;
                 cycle = false;
             } else {
-                Line q1 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 14, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 14);
-                q1.setStrokeWidth(1);
-                q1.setStroke(Color.BLUE);
-                pane1.getChildren().add(q1);
+                q1[cnt2] = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 9, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 9);
+                q1[cnt2].setStrokeWidth(1);
+                q1[cnt2].setStroke(Color.BLUE);
+                pane1.getChildren().add(q1[cnt2]);
                 cycle = false;
+                cnt2++;
             }
-        }
-        else {
-            Line q3 = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 14, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 14);
-            q3.setStrokeWidth(1);
-            q3.setStroke(Color.ORANGE);
-            pane1.getChildren().add(q3);
+        } else {
+            q2[cnt3] = new Line(P.visual.elementAt(P.list.elementAt(counter).from).x, P.visual.elementAt(P.list.elementAt(counter).from).y - 9, P.visual.elementAt(P.list.elementAt(counter).to).x, P.visual.elementAt(P.list.elementAt(counter).to).y - 9);
+            q2[cnt3].setStrokeWidth(1);
+            q2[cnt3].setStroke(Color.ORANGE);
+            pane1.getChildren().add(q2[cnt3]);
             cycle = false;
+            cnt3++;
         }
         counter++;
     }
-
 }

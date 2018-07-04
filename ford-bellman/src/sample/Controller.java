@@ -59,9 +59,9 @@ public class Controller {
     private static int k;
 
 
-    public static Graph P = new Graph();
+    static Graph P = new Graph();
     private GraphController graphWindow;
-    public static boolean Setting = true;
+    private static boolean Setting = true;
 
     /**
      *
@@ -112,7 +112,7 @@ public class Controller {
      *
      * @param s A string that tells you what error is committed when filling out the fields.
      */
-    public void error(String s) {
+    private void error(String s) {
         alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Invalid input");
         alert.setHeaderText(s);
@@ -122,7 +122,7 @@ public class Controller {
     /**
      * The function of starting the algorithm for finding the most granular paths of the graph.
      */
-    public void beginAlgorithm() {
+    private void beginAlgorithm() {
         k = 1;
         P.searchAlgorithm(this);
         P.outputWays(this);
@@ -178,7 +178,7 @@ public class Controller {
     /**
      * Function of calling the child window to draw the graph.
      */
-    public void FXMLDocumentController(Stage stageWindow) throws IOException {
+    private void FXMLDocumentController(Stage stageWindow) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("GUI_prototype.fxml"));
         stageWindow.setTitle("Graph");
         Scene scene = new Scene(root);
