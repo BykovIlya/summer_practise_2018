@@ -8,4 +8,4 @@ https://github.com/BykovIlya/summer_practise_2018/blob/master/ford-bellman/ford-
 https://github.com/BykovIlya/summer_practise_2018/tree/master/ford-bellman_consoleApplication/src/algorithm/graph
 
 # link to the report:
-https://github.com/BykovIlya/summer_practise_2018/blob/master/docs/report.docx
+https://github.com/BykovIlya/summer_practise_2018/blob/master/docs/report_Ready.docx
