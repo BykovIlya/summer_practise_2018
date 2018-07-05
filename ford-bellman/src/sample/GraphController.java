@@ -50,7 +50,7 @@ public class GraphController extends Controller {
     public void graphButton() {
         imageVertex();
         for (int i = 0; i < P.m; i++) {
-            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 14, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 14);
+            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 9, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 9);
             q.setStrokeWidth(0.5);
             q.setFill(Color.LIGHTGREY);
             pane1.getChildren().add(q);
@@ -84,11 +84,11 @@ public class GraphController extends Controller {
 
             Label label1 = new Label(Integer.toString(P.ways.elementAt(P.V)));
             label1.setTextFill(Color.RED);
-            label1.setLayoutX((P.visual.elementAt(P.V)).x + 10);
-            label1.setLayoutY((P.visual.elementAt(P.V).y - 12));
+            label1.setLayoutX((P.visual.elementAt(P.V)).x + 12);
+            label1.setLayoutY((P.visual.elementAt(P.V).y - 9));
             pane1.getChildren().add(label1);
 
-            Line q = new Line(P.visual.elementAt(l).x, P.visual.elementAt(l).y - 14, P.visual.elementAt(k).x, P.visual.elementAt(k).y - 14);
+            Line q = new Line(P.visual.elementAt(l).x, P.visual.elementAt(l).y - 9, P.visual.elementAt(k).x, P.visual.elementAt(k).y - 9);
             q.setStroke(Color.RED);
             q.setStrokeWidth(1);
             pane1.getChildren().add(q);
@@ -108,18 +108,18 @@ public class GraphController extends Controller {
      * @param color color of the line
      */
     private void arrow(int x, int x1, int y, int y1, Color color) {
-        double beta = Math.atan2((y) - (y1 - 14), x1 - x);
+        double beta = Math.atan2((y) - (y1 - 9), x1 - x);
         double alfa = Math.PI / 10;
         int r1 = 10;
 
         int x2 = (int) Math.round(x1 - r1 * Math.cos(beta + alfa));
-        int y2 = (int) Math.round((y1 - 14) + r1 * Math.sin(beta + alfa));
+        int y2 = (int) Math.round((y1 - 9) + r1 * Math.sin(beta + alfa));
 //g2d.drawLine(x1,y1,x2,y2);
         int x3 = (int) Math.round(x1 - r1 * Math.cos(beta - alfa));
-        int y3 = (int) Math.round((y1 - 14) + r1 * Math.sin(beta - alfa));
+        int y3 = (int) Math.round((y1 - 9) + r1 * Math.sin(beta - alfa));
 //g2d.drawLine(x1,y1,x2,y2);
-        Line q1 = new Line(x1, y1 - 14, x2, y2);
-        Line q2 = new Line(x1, y1 - 14, x3, y3);
+        Line q1 = new Line(x1, y1 - 9, x2, y2);
+        Line q2 = new Line(x1, y1 - 9, x3, y3);
         q1.setStroke(color);
         pane1.getChildren().add(q1);
         q2.setStroke(color);
@@ -136,7 +136,7 @@ public class GraphController extends Controller {
         fordInWork = true;
         imageVertex();
         for (int i = 0; i < P.m; i++) {
-            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 14, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 14);
+            Line q = new Line(P.visual.elementAt(P.list.elementAt(i).from).x, P.visual.elementAt(P.list.elementAt(i).from).y - 9, P.visual.elementAt(P.list.elementAt(i).to).x, P.visual.elementAt(P.list.elementAt(i).to).y - 9);
             q.setStrokeWidth(0.5);
             q.setFill(Color.BLACK);
             pane1.getChildren().add(q);
