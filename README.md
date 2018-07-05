@@ -1,7 +1,7 @@
 # summer_practise_2018
  summer practice of students of LETI faculty of FKTI. Implementation of the Ford-Bellman algorithm
 
-# link to the finished application (old version):
+# link to the finished application:
 https://github.com/BykovIlya/summer_practise_2018/blob/master/ford-bellman/ford-bellman.jar
 
 # link to the console application with unit tests :
